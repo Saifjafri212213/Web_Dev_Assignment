@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Library Home</title>
+    <style>
+        /* Base Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a; /* Dark slate background */
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* Layout for Options */
+        .options-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap; /* Allows stacking on smaller screens */
+        }
+
+        /* Card Styling */
+        .card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            width: 320px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(30, 41, 59, 1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Icon Styling */
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .icon {
+            transform: scale(1.1);
+        }
+
+        /* Card Text */
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f1f5f9;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .options-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MovieVault</h1>
+        <p>Manage your personal cinematic universe</p>
+    </header>
+
+    <div class="options-container">
+        <a href="http://localhost:3000/insertdata" class="card">
+            <span class="icon">🎬</span>
+            <h2>Enter Movie</h2>
+            <p>Log a new movie into your database, including details like director, genre, and rating.</p>
+        </a>
+        
+        <a href="http://localhost:3000/collection" class="card">
+            <span class="icon">🍿</span>
+            <h2>View Collection</h2>
+            <p>Browse through all your saved movies, search your library, and manage your entries.</p>
+        </a>
+
+        <a href="http://localhost:3000/search" class="card">
+            <span class="icon">🔍</span>
+            <h2>Search Movies</h2>
+            <p>Quickly find specific movies in your vault by title, actor, genre, or director.</p>
+        </a>
+    </div>
+
+</body>
+</html>

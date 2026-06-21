@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie - MovieVault</title>
+    <style>
+        /* Base Reset & Typography */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { 
+            background-color: #0f172a; /* Dark slate background */
+            color: #f8fafc; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 20px; 
+        }
+
+        /* Form Container Styling */
+        .form-container { 
+            background: rgba(30, 41, 59, 0.8); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 16px; 
+            padding: 2.5rem 2rem; 
+            width: 100%;
+            max-width: 450px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Header Styling */
+        .form-container h2 { 
+            font-size: 2rem; 
+            font-weight: 800; 
+            margin-bottom: 1.5rem; 
+            text-align: center;
+            background: linear-gradient(135deg, #38bdf8, #818cf8); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        /* Form Group & Elements */
+        .form-group { margin-bottom: 1.25rem; }
+        
+        label { 
+            display: block; 
+            margin-bottom: 0.5rem; 
+            font-weight: 500; 
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        input { 
+            width: 100%; 
+            padding: 0.75rem; 
+            background-color: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 8px; 
+            color: #f8fafc;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box; 
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Button Styling */
+        button { 
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: #0f172a; 
+            font-weight: 700;
+            padding: 0.75rem 15px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-size: 1rem; 
+            margin-top: 1rem;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+        }
+        
+        button:hover { 
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+
+        /* Back Link Styling */
+        a { 
+            display: block; 
+            text-align: center;
+            margin-top: 1.5rem; 
+            color: #94a3b8; 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Edit Movie Details</h2>
+        
+        <form action="/update/<%= data._id %>" method="POST">
+            
+            <div class="form-group">
+                <label for="movieName">Movie Name</label>
+                <input type="text" id="movieName" name="movieName" value="<%= data.movieName %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="director">Director</label>
+                <input type="text" id="director" name="director" value="<%= data.director %>">
+            </div>
+
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="genre" value="<%= data.genre %>">
+            </div>
+
+            <div class="form-group">
+                <label for="releaseYear">Release Year</label>
+                <input type="number" id="releaseYear" name="releaseYear" value="<%= data.releaseYear %>">
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating (1-10)</label>
+                <input type="number" id="rating" name="rating" min="1" max="10" value="<%= data.rating %>">
+            </div>
+
+            <button type="submit">Update Movie</button>
+        </form>
+
+        <a href="/collection">← Back to Collection</a>
+    </div>
+
+</body>
+</html>
